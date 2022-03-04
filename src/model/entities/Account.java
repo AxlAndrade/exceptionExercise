@@ -1,5 +1,7 @@
 package model.entities;
 
+import model.exceptions.BusinessException;
+
 public class Account {
 
 	private Integer number;
@@ -56,5 +58,13 @@ public class Account {
 		System.out.printf("New balance: %.2f", balance);
 	}
 
+	public void validateWithdraw(double value) {
+		if (value > getWithdrawLimit()) {
+			throw new BusinessException("A quantia excede o limite diário de saque.");
+		}
+		if (value > getBalance()) {
+			throw new BusinessException("Saldo insuficiente para saque.");
+		}
+	}
 	
 }
