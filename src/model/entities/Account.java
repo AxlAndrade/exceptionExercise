@@ -61,10 +61,10 @@ public class Account {
 
 	public void validateWithdraw(double value) {
 		if (value > getWithdrawLimit()) {
-			throw new BusinessException("A quantia excede o limite diário de saque.");
+			throw new BusinessException("The amount exceeds the diary withdraw limit.");
 		}
 		if (value > getBalance()) {
-			throw new BusinessException("Saldo insuficiente para saque.");
+			throw new BusinessException("Insufficient balance to withdraw.");
 		}
 	}
 	
