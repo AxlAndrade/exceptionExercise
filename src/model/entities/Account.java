@@ -54,6 +54,7 @@ public class Account {
 	}
 	
 	public void withdraw(double value) {
+		validateWithdraw(value);
 		balance -= value;
 		System.out.printf("New balance: %.2f", balance);
 	}
